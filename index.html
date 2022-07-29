@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <form id="form" class="inp">
+            <label for="date">Date: </label>
+            <input type="date" name="" id="date">
+            <label for="longitude">Longitude: </label>
+            <input type="text" name="" id="longitude">
+            <label for="latitude">Latitude: </label>
+            <input type="text" name="" id="latitude">
+            <label for="title">Title: </label>
+            <input type="text" name="" id="title">
+            <br>
+            <label for="description">Description: </label><br>
+            <textarea name="" id="description" cols="30" rows="3"></textarea>
+            <br>
+            <input type="submit" value="Create">
+        </form>
+        <div class="box">
+        <div class="temp">
+            <div class="image">
+                <img src="test-image.png">
+            </div>
+            
+            <script id="template1" type="x-tmpl-mustache">
+                {{title}}
+            </script>
+            <script id="template2" type="x-tmpl-mustache">
+                {{text}}
+            </script>
+            <script id="template3" type="x-tmpl-mustache">
+                {{latitude}}°N/{{longitude}}°E <br>
+                {{date}}
+            </script>
+            <div class="footer">
+                <div class="cameo">
+
+                </div>
+                <div id="result2" class="result2">
+
+                </div>
+                <div class="cameo2">
+
+                </div>
+                <div class="second">
+                    <div id="result1" class="result1" style="text-align: right;font-weight: bold;">
+
+                    </div>
+                    <div id="result3" class="result3" style="text-align: right;font-weight: bold;">
+
+                    </div>
+                </div>
+                <div class="cameo">
+
+                </div>
+
+            </div>
+            
+        </div></div>
+        
+    </body>
+    <script src="https://unpkg.com/mustache@latest"></script>
+    <script>
+        let form = document.getElementById('form')
+
+        form.addEventListener("submit",insert)
+        function insert(e){
+            e.preventDefault();
+            var date = document.getElementById("date").value;
+            var longitude = document.getElementById("longitude").value;
+            var latitude = document.getElementById("latitude").value;
+            var title = document.getElementById("title").value;
+            var description = document.getElementById("description").value;
+            var template1 = document.getElementById("template1").innerHTML;
+            var rendered1 = Mustache.render(template1,{
+                title:title
+            })
+            document.getElementById("result1").innerHTML=rendered1;
+            var template2 = document.getElementById("template2").innerHTML;
+            var rendered2 = Mustache.render(template2,{
+                text:description
+            })
+            document.getElementById("result2").innerHTML=rendered2;
+            var template3 = document.getElementById("template3").innerHTML;
+            var rendered3 = Mustache.render(template3,{
+                date:date,longitude:longitude,latitude:latitude
+            })
+            document.getElementById("result3").innerHTML=rendered3;
+        }
+    </script>
+</html>

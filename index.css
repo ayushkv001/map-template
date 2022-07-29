@@ -1,0 +1,51 @@
+body{
+    overflow: hidden;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    overflow: hidden;
+    /* background-color: black; */
+}
+
+.temp{
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border : 3px solid #dddddd;
+    
+}
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temp img{
+    width: 420px;
+    height: 420px;
+    
+}
+
+.footer{
+    display:flex;
+    flex-direction: row;
+}
+.result2{
+    width: 260px;
+}
+.second {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    width: 120px;
+}
+.cameo{
+    width: 40px;
+}
+.cameo2{
+    width: 40px;
+}
+
